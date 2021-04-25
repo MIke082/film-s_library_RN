@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/img/logo.svg",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "moonsite.apk"
     },
     "web": {
       "favicon": "./assets/favicon.png"

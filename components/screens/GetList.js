@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Button, View, StyleSheet, ScrollView } from 'react-native';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDataCreater } from '../store/action';
 import CardList from './CardList';
 
-const GetList = (props) => {
+const GetList = () => {
     const [visible, setVisible] = useState(true);
 
+    const list = useSelector(state => state.listReducer);
+    const dispatch = useDispatch();
+    
+    const GetList = () =>  dispatch(getDataCreater())
+
     useEffect(() => {
-        props.getList();
+        GetList()
     }, [])
 
     return (
@@ -20,26 +25,13 @@ const GetList = (props) => {
                     </View> :
                     <View style={styles.btn}>
                         <Button title='List of films' onPress={() => setVisible(true)} />
-                        {props.list && props.list.map((item, index) => <CardList item={item} key={index} />)}
+                        {list && list.map((item, index) => <CardList item={item} key={index} />)}
                     </View>}
             </View>
         </ScrollView>
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        list: state.listReducer
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getList: () => {
-            dispatch(getDataCreater())
-        }
-    }
-}
 const styles = StyleSheet.create({
     btn: {
         alignItems: 'center',
@@ -47,4 +39,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(GetList);
+export default GetList;
