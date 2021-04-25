@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "moonsite",
+    "slug": "moonsite",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/img/logo.svg",
+    "splash": {
+      "image": "./assets/img/logo.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/img/logo.svg",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
